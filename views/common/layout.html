@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+{% spaceless %}
+<head>
+    {% include "head.html" %}
+    {% block "block_custom_css" %}{% endblock %}
+    {% include "headhook.html" %}
+</head>
+<body>
+    <div class="content">
+        {% block "content" %}{% endblock %}
+    </div>
+
+    {% include "footer.html" %}
+
+    <script type="text/javascript"> var CONSTANT = {};
+        CONSTANT.pageData = {{ JSON.stringify(pageData || {}) }} ;
+    </script>
+
+    {% block "block_custom_js" %}{% endblock %}
+
+    
+    <script type="text/javascript">
+        window.onload = function(){
+            setTimeout(function(){
+                // yuanye：test先去掉这块
+                console.log('哈哈哈')
+                // ;
+                // {% include '../../static/js/lib/adProvider.min.js' raw ignore missing %};
+                // {% include '../../static/js/hook/baidu.js' raw ignore missing %};
+                // {% include "../../static/js/lib/zepto.min.js" raw ignore missing %};
+                // {% include "../../static/js/lib/combo.min.js" raw ignore missing %};
+
+                // {% if pageData && pageData.__iscroll %}
+                // // iscroll不能和fastClick共用
+                // {% include "../../static/js/lib/iscroll.min.js" raw ignore missing%};
+                // {% endif %}
+
+                // {% if pageData.__fastClick %}
+                // // iscroll不能和fastClick共用
+                // {% include "../../static/js/lib/fastclick.min.js" raw ignore missing %}
+                // ;Origami.fastclick(document.body);
+                // {% endif %}
+
+            },300)
+        }()
+    </script>
+
+</body>
+{% endspaceless %}
+</html>

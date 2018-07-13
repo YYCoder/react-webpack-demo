@@ -1,0 +1,52 @@
+{% extends "../_common/layout.html" %}
+
+{% block "block_custom_css" %}
+<link href="https://img003.qufenqi.com/products/81/8e/818e65228fb24b17b4ff601727678a1f.png" type="image/x-icon" rel="icon" />
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+
+
+  <% if(chunk !== 'index' && chunk!== 'pc_about' && chunk !== 'common' && chunk !== 'manifest' && chunk !== 'vendor'){ %>
+    <!-- flexible -->
+    <script data-type="flexible">
+    {% include "../../static/js/lib/flexible.min.js" raw ignore missing%}
+    </script>
+    <script data-type="base">
+    {% include "../../static/js/lib/base.min.js" raw ignore missing%};
+    </script>
+    <script data-type="set-channel">
+    {% include "../../static/js/hook/qdFrom.js" raw %};
+    {% include "../../static/js/lib/channel.min.js" raw ignore missing%};
+    {% include "../../static/js/common/set_from.js" raw ignore missing%}
+    
+    </script>
+    <script data-type="location">
+    {% include "../../static/js/lib/location.min.js" raw ignore missing%};
+    </script>
+    <!-- flexible end-->
+    <% } %>
+
+<% } %>
+
+
+<% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+<% } %>
+{% endblock %}
+
+{% block "block_custom_js" %}
+     <!-- <script src="{{constant.cdn}}/auto/static/js/lib/vendor.min.js?4f61e31"></script> -->
+     <!-- yuanye：test先写死为本地服务 -->
+     <script src="http://127.0.0.1:3001/react-webpack-demo/static/js/lib/vendor-react-5fd83e7.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+      <% if(chunk !== 'common'|| process.env.NODE_ENV === 'development' ){ %>
+          <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+      <% } %>
+   <% } %>
+{% endblock %}
+
+{% block "content" %}
+
+    <!-- 页面入口 -->
+    <div id="app"></div>
+
+{% endblock %}
