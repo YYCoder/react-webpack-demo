@@ -6,6 +6,8 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "syntax-dynamic-import",
+    ["import", { "libraryName": "antd-mobile", "style": true }]
   ]
 }

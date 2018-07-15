@@ -2,7 +2,7 @@ const { assetsPath, entries, resolve } = require('./utils')
 const config = require('./config')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// const theme = require('./theme').theme
+const theme = require('./antd-theme')
 
 const webpackConfig = {
   cache: true,
@@ -43,7 +43,8 @@ const webpackConfig = {
           'style-loader',
           'css-loader',
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: { modifyVars: theme }
           },
         ],
         include: /node_modules/

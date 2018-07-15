@@ -1,4 +1,4 @@
-{% extends "../_common/layout.html" %}
+{% extends "../common/layout.html" %}
 
 {% block "block_custom_css" %}
 <link href="https://img003.qufenqi.com/products/81/8e/818e65228fb24b17b4ff601727678a1f.png" type="image/x-icon" rel="icon" />
@@ -14,13 +14,16 @@
     {% include "../../static/js/lib/base.min.js" raw ignore missing%};
     </script>
     <script data-type="set-channel">
-    {% include "../../static/js/hook/qdFrom.js" raw %};
+    {% include "../../static/js/hook/qdFrom.js" raw ignore missing %};
     {% include "../../static/js/lib/channel.min.js" raw ignore missing%};
     {% include "../../static/js/common/set_from.js" raw ignore missing%}
     
     </script>
     <script data-type="location">
     {% include "../../static/js/lib/location.min.js" raw ignore missing%};
+    </script>
+    <script data-type="location">
+    {% include "../../static/js/lib/fastclick.min.js" raw ignore missing%};
     </script>
     <!-- flexible end-->
     <% } %>

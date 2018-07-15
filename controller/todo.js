@@ -1,5 +1,5 @@
 /**
- * demo页面控制器
+ * todoList页面控制器
  */
 exports.index = async function () {
   await this.bindDefault()
@@ -10,7 +10,7 @@ exports.index = async function () {
   })
 }
 
-exports.a = async function () {
+exports.edit = async function () {
   await this.bindDefault()
   await this.render('app', {
     pageData: {
@@ -19,7 +19,7 @@ exports.a = async function () {
   })
 }
 
-exports.b = async function () {
+exports.list = async function () {
   await this.bindDefault()
   await this.render('app', {
     pageData: {
@@ -28,11 +28,3 @@ exports.b = async function () {
   })
 }
 
-exports.c = async function () {
-  await this.bindDefault()
-  await this.render('app', {
-    pageData: {
-      data: 'c'
-    }
-  })
-}
