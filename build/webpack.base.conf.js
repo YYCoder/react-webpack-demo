@@ -54,8 +54,7 @@ const webpackConfig = {
         use: {
           loader: 'babel-loader?cacheDirectory=./babel_cache',
           options: {
-            presets: ["env", "react", "es2015", "stage-0"],
-            plugins: []
+            presets: ["env", "react", "es2015", "stage-0"]
           }
         },
         include: [

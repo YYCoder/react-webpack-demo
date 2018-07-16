@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import style from './style.scss'
+import { Button, Flex } from 'antd-mobile'
 
 export default class TodoHome extends Component {
   constructor(props) {
@@ -7,14 +8,17 @@ export default class TodoHome extends Component {
     this.state = {}
   }
   goList() {
-    console.log(this.props.history)
     this.props.history.push('/todo/list')
   }
   render() {
     return (
       <div className="todo-home">
-        欢迎来到 todo list
-        <a href="javascript:;" onClick={this.goList.bind(this)}>点我跳转list</a>
+        <h1>欢迎来到 todo list</h1>
+        <Flex justify="center">
+          <Flex.Item>
+            <Button type="primary" onClick={this.goList.bind(this)}>进入todo list</Button>
+          </Flex.Item>
+        </Flex>
       </div>
     )
   }

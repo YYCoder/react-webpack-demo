@@ -1,4 +1,33 @@
-$bg: yellow;
 .todo-list {
-  background: $bg;
+  padding: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  .am-card {
+    margin-top: 15px;
+    .unfinish-footer {
+      .update-time {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #f1f1f1;
+        display: flex;
+        justify-content: space-between;        
+      }
+      .button-wrap {
+        margin-top: 10px;
+        text-align: right;
+      }
+    }
+  }
+  .list {
+    .header-title {
+      margin: 20px 0;
+    }
+  }
+  .bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 20px;
+  }
 }
