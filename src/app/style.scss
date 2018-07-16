@@ -1,0 +1,16 @@
+html, body{
+  -webkit-overflow-scrolling : touch;
+  -webkit-font-smoothing: antialiased;
+  font-family: PingFangSC;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  .wrap {
+    height: 100%;
+    padding: 20px;
+  }
+}
+
