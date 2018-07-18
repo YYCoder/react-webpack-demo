@@ -39,7 +39,7 @@
 {% block "block_custom_js" %}
      <!-- <script src="{{constant.cdn}}/auto/static/js/lib/vendor.min.js?4f61e31"></script> -->
      <!-- yuanye：test先写死为本地服务 -->
-     <script src="http://127.0.0.1:3001/react-webpack-demo/static/js/lib/vendor-react-5fd83e7.js"></script>
+     <script src="http://127.0.0.1:3001/react-webpack-demo/static/js/lib/vendor-react-f6d78f6.js"></script>
   <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
       <% if(chunk !== 'common'|| process.env.NODE_ENV === 'development' ){ %>
           <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>

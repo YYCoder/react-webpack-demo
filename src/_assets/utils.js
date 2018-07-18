@@ -91,7 +91,7 @@
     return result
   }
   /**
-   * 模拟ES6 find方法，若只有一个匹配结果，则直接返回，其余都返回数组
+   * 模拟ES6 find方法，都返回数组
    * @param  {Array}    arr [description]
    * @param  {Function} fun [description]
    * @return {any}          [description]

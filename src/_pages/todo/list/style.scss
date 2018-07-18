@@ -2,6 +2,8 @@
   padding: 20px;
   overflow-y: scroll;
   overflow-x: hidden;
+  padding-bottom: 4.5rem;
+  min-height: 100%;
   .am-card {
     margin-top: 15px;
     .unfinish-footer {
@@ -14,12 +16,16 @@
       .button-wrap {
         margin-top: 10px;
         text-align: right;
+        .am-button {
+          margin-left: 20px;
+        }
       }
     }
   }
   .list {
     .header-title {
       margin: 20px 0;
+      text-align: center;
     }
   }
   .bottom {
@@ -29,5 +35,8 @@
     left: 0;
     box-sizing: border-box;
     padding: 20px;
+    .am-button {
+      box-shadow: 0 3px 3px #999;
+    }
   }
 }

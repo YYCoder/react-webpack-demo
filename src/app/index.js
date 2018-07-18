@@ -10,9 +10,6 @@ import './style.scss'
 
 // 异步导入组件
 const Home = asyncComponent(() => import('_pages/home'))
-const A = asyncComponent(() => import('_pages/A'))
-const B = asyncComponent(() => import('_pages/B'))
-const C = asyncComponent(() => import('_pages/C'))
 const TodoHome = asyncComponent(() => import('_pages/todo/home'))
 const TodoList = asyncComponent(() => import('_pages/todo/list'))
 const TodoEdit = asyncComponent(() => import('_pages/todo/edit'))
@@ -35,9 +32,6 @@ export default class App extends Component {
         <Route exact path="/todo" component={TodoHome} />
         <Route exact path="/todo/edit/:id" component={TodoEdit} />
         <Route exact path="/todo/list" component={TodoList} />
-        <Route exact path="/test/a" component={A} />
-        <Route exact path="/test/b" component={B} />
-        <Route exact path="/test/c" component={C} />
       </div>
     )
   }
