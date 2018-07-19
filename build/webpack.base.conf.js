@@ -32,7 +32,9 @@ const webpackConfig = {
       'tools': resolve('src/_assets/tools.js'),
       'js': resolve('static/js/common'),
       'assets': resolve('src/_assets'),
-      'pages': resolve('src/_pages')
+      'pages': resolve('src/_pages'),
+      'reducers': resolve('src/_reducers'),
+      'actions': resolve('src/_actions')
     }
   },
   module: {
@@ -54,8 +56,7 @@ const webpackConfig = {
         use: {
           loader: 'babel-loader?cacheDirectory=./babel_cache',
           options: {
-            presets: ["env", "react", "es2015", "stage-0"],
-            plugins: []
+            presets: ["env", "react", "es2015", "stage-0"]
           }
         },
         include: [

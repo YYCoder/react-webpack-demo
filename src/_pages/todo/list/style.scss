@@ -1,4 +1,21 @@
-$bg: yellow;
 .todo-list {
-  background: $bg;
+  padding: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 4.5rem;
+  min-height: 100%;
+  .am-card {
+    margin-top: 15px;
+  }
+  .bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 20px;
+    .am-button {
+      box-shadow: 0 3px 3px #999;
+    }
+  }
 }

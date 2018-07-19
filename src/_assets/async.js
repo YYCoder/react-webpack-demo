@@ -1,5 +1,4 @@
 import Loadable from 'react-loadable'
-import Loading from 'components/loading-page'
 
 export default function AsyncComponent(opts) {
   let options = {}
@@ -11,7 +10,7 @@ export default function AsyncComponent(opts) {
     options = Object.assign(options, opts)
   }
   return Loadable(Object.assign({
-    loading: Loading,
+    loading: () => null,
     delay: 200,
     timeout: 10000,
   }, options))

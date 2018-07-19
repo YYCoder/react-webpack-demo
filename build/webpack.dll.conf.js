@@ -3,7 +3,7 @@ const { resolve } = require('./utils')
 
 module.exports = {
   entry: {
-    vendor: ['react', 'react-dom', 'react-router', 'react-router-dom']
+    vendor: ['react', 'react-dom', 'react-router', 'react-router-dom', 'antd-mobile']
   },
   output: {
     path: resolve('static/js/lib'),
