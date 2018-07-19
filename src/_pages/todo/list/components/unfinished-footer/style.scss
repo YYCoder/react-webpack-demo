@@ -1,0 +1,15 @@
+.unfinish-footer {
+  .update-time {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;        
+  }
+  .button-wrap {
+    margin-top: 10px;
+    text-align: right;
+    .am-button {
+      margin-left: 20px;
+    }
+  }
+}

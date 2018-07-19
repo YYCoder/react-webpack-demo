@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import { Router, Route, Link } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
 import { render } from 'react-dom'
 import asyncComponent from 'assets/async'
-// import { observer } from 'mobx-react'
 import createBrowserHistory from 'history/createBrowserHistory'
+// 数据管理
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from 'reducers'
 // 引入全局样式
 import './style.scss'
 
@@ -23,8 +26,6 @@ export default class App extends Component {
       data: window.CONSTANT.pageData
     }
   }
-  componentDidMount() {
-  }
   render() {
     return (
       <div className="wrap">
@@ -37,12 +38,18 @@ export default class App extends Component {
   }
 }
 
-// 路由
+// 创建Store
+const store = createStore(rootReducer)
+// 将store直接挂到window，方便调试
+window.store = store
+// 开启路由
 const history = createBrowserHistory()
 render((
-  <Router history={history}>
-    <Route path="/" component={App}></Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}></Route>
+    </Router>
+  </Provider>
 ), document.getElementById('app'))
 
 

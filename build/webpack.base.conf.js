@@ -32,7 +32,9 @@ const webpackConfig = {
       'tools': resolve('src/_assets/tools.js'),
       'js': resolve('static/js/common'),
       'assets': resolve('src/_assets'),
-      'pages': resolve('src/_pages')
+      'pages': resolve('src/_pages'),
+      'reducers': resolve('src/_reducers'),
+      'actions': resolve('src/_actions')
     }
   },
   module: {

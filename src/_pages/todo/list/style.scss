@@ -6,27 +6,6 @@
   min-height: 100%;
   .am-card {
     margin-top: 15px;
-    .unfinish-footer {
-      .update-time {
-        padding-bottom: 10px;
-        border-bottom: 1px solid #f1f1f1;
-        display: flex;
-        justify-content: space-between;        
-      }
-      .button-wrap {
-        margin-top: 10px;
-        text-align: right;
-        .am-button {
-          margin-left: 20px;
-        }
-      }
-    }
-  }
-  .list {
-    .header-title {
-      margin: 20px 0;
-      text-align: center;
-    }
   }
   .bottom {
     position: fixed;
