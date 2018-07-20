@@ -4,7 +4,9 @@ import { render } from 'react-dom'
 import asyncComponent from 'assets/async'
 import createBrowserHistory from 'history/createBrowserHistory'
 // 数据管理
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger'
+import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
 import rootReducer from 'reducers'
 // 引入全局样式
@@ -38,8 +40,15 @@ export default class App extends Component {
   }
 }
 
+const loggerMiddleware = createLogger()
 // 创建Store
-const store = createStore(rootReducer)
+const store = createStore(
+  rootReducer,
+  applyMiddleware(
+    thunkMiddleware, // 允许我们 dispatch() 函数
+    loggerMiddleware // 一个很便捷的 middleware，用来打印 action 日志
+  )
+)
 // 将store直接挂到window，方便调试
 window.store = store
 // 开启路由

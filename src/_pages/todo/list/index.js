@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Toast } from 'antd-mobile'
-import { dateFormat, arrUnique } from 'assets/utils'
-import axios from 'axios'
+import { arrUnique } from 'assets/utils'
 import { connect } from 'react-redux'
 // 导入actions
-import { addTodo, initTodos, changeFilter } from 'actions/todo'
+import { addTodo, requestTodos, changeFilter } from 'actions/todo'
 // 页面样式
 import style from './style.scss'
 // 导入自定义组件
@@ -14,34 +13,14 @@ class TodoList extends Component {
   constructor(props) {
     super(props)
     // 获取数据，更新list
-    this.getList()
-  }
-  getList() {
-    Toast.loading('加载中...', 10)
-    axios.get('/ajax/todo/list')
-    .then(({ data, status, statusText }) => {
-      if (status === 200) {
-        data.forEach((ele) => {
-          ele.createTime = dateFormat(ele.createTime)
-          ele.updateTime = dateFormat(ele.updateTime)
-        })
-        // 触发addTodoMultiple action，更新store
-        this.props.initTodos(data)
-        Toast.hide()
-      }
-      else {
-        Toast.fail(statusText || '网络异常，请稍后重试')
-      }
-    })
-    .catch((err) => {
-      Toast.fail('网络异常，请稍后重试')
-    })
+    props.requestTodos()
   }
   back() {
     this.props.history.goBack()
   }
   render() {
     const { list } = this.props
+
     return (
       <div className="todo-list">
         {
@@ -51,8 +30,6 @@ class TodoList extends Component {
             )
           })
         }
-        <ItemList list={list} />
-
         <div className="bottom">
           <Button type="primary" onClick={this.back.bind(this)}>点我返回上一页</Button>
         </div>
@@ -61,16 +38,25 @@ class TodoList extends Component {
   }
 }
 
+
 function mapStateToProps(state, ownProps) {
-  return state.todo
+  // 过滤todo数据状态
+  const { todo } = state
+  const { filter } = todo
+  const list = todo.list.filter(ele => filter !== '全部' ? ele.status === filter : true)
+
+  return {
+    filter,
+    list
+  }
 }
 function mapDispatchToProps(dispatch) {
   return {
     addTodo(data) {
       dispatch(addTodo(data))
     },
-    initTodos(data) {
-      dispatch(initTodos(data))
+    requestTodos() {
+      dispatch(requestTodos('/ajax/todo/list'))
     },
     changeFilter(data) {
       dispatch(changeFilter(data))

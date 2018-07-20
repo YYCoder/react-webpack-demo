@@ -8,8 +8,18 @@
   .button-wrap {
     margin-top: 10px;
     text-align: right;
-    .am-button {
+    .button {
+      background: #108ee9;
+      box-shadow: 0 2px 3px #999; /*no*/
+      display: inline-block;
+      border-radius: 5px;
       margin-left: 20px;
+      padding: 0 40px;
+      line-height: 2rem;
+      color: #fff;
+      a {
+        color: #fff;
+      }
     }
   }
 }

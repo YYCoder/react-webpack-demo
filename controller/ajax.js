@@ -55,7 +55,12 @@ module.exports = {
       }]
       // 模拟加载两秒
       await new Promise((res) => setTimeout(res, 2000))
-      this.body = list
+      // this.body = list
+      this.body = {
+        code: 0,
+        data: list,
+        message: 'ok'
+      }
     }
   }
 }
