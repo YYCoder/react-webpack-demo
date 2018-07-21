@@ -11,7 +11,7 @@ const devConfig = {
     rules: styleLoaders()
   },
   output: {
-    path: config.build.assetsRoot,
+    path: config.dev.assetsRoot,
     filename: assetsPath('js/[name]/build.js'),
     chunkFilename: assetsPath('js/[id]/chunk.js')
   },

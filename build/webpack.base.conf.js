@@ -10,10 +10,10 @@ const webpackConfig = {
     common: ['./static/css/common/reset.scss']
   }),
   output: {
-    path: config.build.assetsRoot,
+    path: config.pro.assetsRoot,
     filename: assetsPath('js/[name]/build-[hash:7].js'),
     publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
+      ? config.pro.assetsPublicPath
       : config.dev.assetsPublicPath
   },
   resolve: {
