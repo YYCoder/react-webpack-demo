@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Toast } from 'antd-mobile'
-import { arrUnique } from 'assets/utils'
+import { Button, SegmentedControl } from 'antd-mobile'
+import { findIndex } from 'assets/utils'
 import { connect } from 'react-redux'
 // 导入actions
 import { addTodo, requestTodos, changeFilter } from 'actions/todo'
@@ -19,12 +19,17 @@ class TodoList extends Component {
     this.props.history.goBack()
   }
   render() {
-    const { list } = this.props
+    const { list, filterList, filter } = this.props
+    const filterIndex = findIndex(filterList, filter)[0]
+    const listFilteredStatus = filterList.filter(status => filter !== '全部' ? status === filter : true)
 
     return (
       <div className="todo-list">
+        <div className="filter-wrap">
+          <SegmentedControl values={filterList} selectedIndex={filterIndex} onChange={(e) => this.props.changeFilter.call(this, e.nativeEvent.value)} />
+        </div>
         {
-          arrUnique(list.map(ele => ele.status)).map(status => {
+          listFilteredStatus.filter(status => status !== '全部').map(status => {
             return (
               <ItemList list={list} status={status} key={status} />
             )
@@ -40,14 +45,15 @@ class TodoList extends Component {
 
 
 function mapStateToProps(state, ownProps) {
-  // 过滤todo数据状态
+  // 过滤todo数据状态，每当全局state发生变化，就会执行该回调
   const { todo } = state
-  const { filter } = todo
+  const { filter, filterList } = todo
   const list = todo.list.filter(ele => filter !== '全部' ? ele.status === filter : true)
 
   return {
     filter,
-    list
+    list,
+    filterList
   }
 }
 function mapDispatchToProps(dispatch) {

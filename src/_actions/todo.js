@@ -21,10 +21,10 @@ function addTodo({
 /**
  * 初始化整个todoList
  */
-function initTodos(todoArr) {
+function initTodos(data) {
   return {
     type: 'INIT_TODOS',
-    data: todoArr
+    data
   }
 }
 /**

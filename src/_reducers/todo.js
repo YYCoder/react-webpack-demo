@@ -2,12 +2,15 @@
  * todo所有reducer
  */
 import { createReducer, updateObject, updateItemInArray } from './utils'
+import { arrUnique } from 'assets/utils'
 // todo初始化state
 const initTodoState = {
   // 可展示的item status
   filter: '全部',
   // 所有todo item列表
   list: [],
+  // 所有todo状态列表
+  filterList: [],
   // 是否在请求flag
   isFetching: false
 }
@@ -43,9 +46,19 @@ function addTodo(todoState, action) {
   return updateObject(todoState, { list: newTodos })
 }
 function initTodos(todoState, action) {
-  const { data } = action
-  const newList = [].concat(data)
-  return updateObject(todoState, { list: newList })
+  const {
+    data: {
+      list,
+      filterList
+    }
+  } = action
+  const newList = [].concat(list)
+  const newFilterList = [].concat(filterList)
+
+  return updateObject(todoState, {
+    list: newList,
+    filterList: newFilterList
+  })
 }
 function editTodo(todoState, action) {
   const { data } = action
