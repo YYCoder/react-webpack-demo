@@ -6,8 +6,8 @@ const os = require('os')
 const workers = os.cpus().length - 1
 const shell = require('shelljs')
 const path = require('path')
-
 const assetsPath = path.join(config.pro.assetsRoot, config.pro.assetsSubDirectory)
+
 shell.rm('-rf', assetsPath)
 shell.mkdir('-p', assetsPath)
 // 初始化UglifyJsPlugin缓存目录

@@ -6,9 +6,10 @@ const theme = require('./antd-theme')
 
 const webpackConfig = {
   cache: true,
-  entry: entries({
+  entry: {
+    app: './src',
     common: ['./static/css/common/reset.scss']
-  }),
+  },
   output: {
     path: config.pro.assetsRoot,
     filename: assetsPath('js/[name]/build-[hash:7].js'),
@@ -86,17 +87,22 @@ const webpackConfig = {
     new CopyWebpackPlugin([
       {
         from: {
-          glob: './controller/**/*'
+          glob: './build'
         },
         to: `${config.base.outputRoot}`
       }, {
         from: {
-          glob: './deploy/**/*'
+          glob: './controller'
         },
         to: `${config.base.outputRoot}`
       }, {
         from: {
-          glob: './mock/**/*'
+          glob: './deploy'
+        },
+        to: `${config.base.outputRoot}`
+      }, {
+        from: {
+          glob: './mock'
         },
         to: `${config.base.outputRoot}`
       }, {

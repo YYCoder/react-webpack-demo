@@ -18,7 +18,7 @@ function exec(cmd) {
 
 function assetsPath(_path) {
   var assetsSubDirectory = process.env.NODE_ENV === 'production' ?
-    config.build.assetsSubDirectory :
+    config.pro.assetsSubDirectory :
     config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
 }
@@ -126,7 +126,8 @@ function setEntrys(conf) {
 
   return conf;
 }
-
+// yuanye：不需要
+/*
 function entries(opt) {
   // cd src
   shell.cd('./src');
@@ -142,7 +143,7 @@ function entries(opt) {
 
   return Object.assign.apply(null, [].concat(ens, opt));
 }
-
+*/
 // 利用hash记录当前webpack配置是否与上次相同，若不同则清空hard-source插件缓存目录，重新生成缓存
 function hardSourceInit(webpackConfig) {
   const hardSourceCacheDir = config.base.hardSourceCacheDir
@@ -173,7 +174,7 @@ module.exports = {
   cssLoaders,
   styleLoaders,
   setEntrys,
-  entries,
+  // entries,
   hardSourceInit
 }
 

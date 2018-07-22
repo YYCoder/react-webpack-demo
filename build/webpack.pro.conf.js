@@ -1,9 +1,10 @@
 const path = require('path')
-const { styleLoaders, assetsPath, resolve } = require('./utils')
+const { styleLoaders, assetsPath, resolve, setEntrys } = require('./utils')
 const config = require('./config')
 const webpack = require('webpack')
 const baseWebpackConfig = require('./webpack.base.conf')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const merge = require('webpack-merge')
 
 const proConfig = {
   watch: false,
