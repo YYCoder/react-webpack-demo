@@ -1,9 +1,18 @@
 .todo-list {
-  padding: 20px;
+  padding: 2.5rem 0.53rem 4.5rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding-bottom: 4.5rem;
   min-height: 100%;
+  .filter-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;/*no*/
+    z-index: 1000;
+    background: #fff;
+  }
   .am-card {
     margin-top: 15px;
   }
@@ -14,6 +23,7 @@
     left: 0;
     box-sizing: border-box;
     padding: 20px;
+    z-index: 1000;
     .am-button {
       box-shadow: 0 3px 3px #999;
     }

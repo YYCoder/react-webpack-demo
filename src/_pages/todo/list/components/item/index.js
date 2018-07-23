@@ -3,10 +3,10 @@ import { Card } from 'antd-mobile'
 // 导入自定义组件
 import ItemFooter from '../item-footer'
 
-export default function Item(data) {
+export default function Item(props) {
   const CBody = Card.Body
   const CHeader = Card.Header
-  const { id, name, content, status } = data
+  const { data: { id, name, content, status } } = props
 
   return (
     <Card>
@@ -14,7 +14,7 @@ export default function Item(data) {
       <CBody>
         {content}
       </CBody>
-      <ItemFooter status={status} data={data} />
+      <ItemFooter status={status} data={props.data} />
     </Card>
   )
 }

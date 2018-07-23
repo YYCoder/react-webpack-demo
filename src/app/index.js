@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
-import { Router, Route } from 'react-router-dom'
-import { render } from 'react-dom'
+import { Route } from 'react-router-dom'
 import asyncComponent from 'assets/async'
-import createBrowserHistory from 'history/createBrowserHistory'
-// 数据管理
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import rootReducer from 'reducers'
+// 热重载
+import { hot } from 'react-hot-loader'
 // 引入全局样式
 import './style.scss'
-
 
 // 异步导入组件
 const Home = asyncComponent(() => import('_pages/home'))
@@ -17,14 +12,13 @@ const TodoHome = asyncComponent(() => import('_pages/todo/home'))
 const TodoList = asyncComponent(() => import('_pages/todo/list'))
 const TodoEdit = asyncComponent(() => import('_pages/todo/edit'))
 
-
+// yuanye：test
+// console.log(456)
 // 根组件
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      data: window.CONSTANT.pageData
-    }
+    this.state = {}
   }
   render() {
     return (
@@ -38,19 +32,7 @@ export default class App extends Component {
   }
 }
 
-// 创建Store
-const store = createStore(rootReducer)
-// 将store直接挂到window，方便调试
-window.store = store
-// 开启路由
-const history = createBrowserHistory()
-render((
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}></Route>
-    </Router>
-  </Provider>
-), document.getElementById('app'))
+export default hot(module)(App)
 
 
 

@@ -30,7 +30,8 @@ const buildConf = {
   // assetsPublicPath: `{{constant.cdn}}/${baseConf.moduleName}/`,
   assetsPublicPath: `http://127.0.0.1:3001/${baseConf.moduleName}/`,
   assetsSubDirectory: 'static',
-  productionSourceMap: false || !!process.env.npm_config_map
+  productionSourceMap: false || !!process.env.npm_config_map,
+  cacheDir: `${path.resolve(__dirname, '../.cache/uglifyjs-webpack-plugin')}`
 }
 const devConf = {
   env: {
@@ -42,7 +43,7 @@ const devConf = {
 }
 
 module.exports = {
-  build: buildConf,
+  pro: buildConf,
   base: baseConf,
   dev: devConf
 }

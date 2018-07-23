@@ -53,9 +53,17 @@ module.exports = {
         updateTime: Date.now(),
         status: '未完成'
       }]
+      const filterList = ['全部', '已完成', '未完成', '延后', '已删除']
       // 模拟加载两秒
       await new Promise((res) => setTimeout(res, 2000))
-      this.body = list
+      this.body = {
+        code: 0,
+        data: {
+          list,
+          filterList
+        },
+        message: 'ok'
+      }
     }
   }
 }
